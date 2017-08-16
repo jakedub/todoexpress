@@ -1,0 +1,9 @@
+li{
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.marked{
+  width: 50px;
+  padding-right: 50px;
+}

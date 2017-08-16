@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  <link rel="stylesheet" href="style.css" >
+  </head>
+  <body>
+    <input class="todo" id="myInput" placeholder="Add a todo..."/>
+    <button class="todo" id="button">Add Todo</button>
+    <ul class="list">
+      {{#todos}}
+      <li> <button class="marked" placeholder="Mark Complete" onclick="check()"></button>{{.}}
+      </li>
+      {{/todos}}
+    </ul>
+    <div class="results">
+
+    </div>
+  </body>
+</html>

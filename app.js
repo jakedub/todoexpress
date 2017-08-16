@@ -4,6 +4,7 @@ const mustacheExpress = require('mustache-express');
 const bodyParser = require ("body-parser");
 const expressValidator = require("express-validator");
 const app = express();
+let funk = ("./funk.js");
 
 //Mustache
 app.engine('mustache', mustacheExpress());
@@ -16,19 +17,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(expressValidator());
 
-const todos = [
-  "Wash the car", "Buy soap"
-];
+//To Do List
+const data = {
+  todos: ["Wash the car", "Buy soap"],
+}
+
 
 app.get('/', function (req, res) {
-  res.render("index", {todos:todos});
+  res.render("todo", data);
 });
 
-app.post("/complete", function (req, res) {
+app.post("/todos", function (req, res) {
   todos.push(req.body.todo);
   res.redirect('complete');
 })
 
 app.listen(3000, function(){
-  console.log("Here is your personal data");
+  console.log("Mark that box!");
 });

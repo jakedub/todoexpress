@@ -3,19 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="./css/style.css" >
   </head>
   <body>
-    <input class="todo" id="myInput" placeholder="Add a todo..."/>
-    <button class="todo" id="button">Add Todo</button>
-    <ul class="list">
+    <ul>
       {{#todos}}
-      <li> <button class="marked" placeholder="Mark Complete" onclick="check()"></button>{{.}}
+      {{#yetTodo}}
+    <li>
+      <form action"/complete" method="post">
+        <button type="submit" name="complete" value="{{todo}}">Mark Complete</button>
+        {{todo}}
+      </form>
+    </li>
+    {{/yetTodo}}
+    {{/todos}}
+    </ul>
+    <h1>Completed Things</h1>
+    <ul>
+      {{#todos}}
+      {{^yetTodo}}
+      <li class="completed">
+        {{todo}}
       </li>
-      {{/todos}}
+        {{/todos}}
+        {{/yetTodo}}
     </ul>
     <div class="results">
 
     </div>
+
+    <!-- <script src="funk.js"></script> -->
   </body>
 </html>

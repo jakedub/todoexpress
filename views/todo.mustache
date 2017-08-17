@@ -2,36 +2,37 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
-  <link rel="stylesheet" href="./css/style.css" >
+    <title>To-do-list</title>
   </head>
   <body>
+    <h1>To-do-list</h1>
     <ul>
       {{#todos}}
+
       {{#yetTodo}}
-    <li>
-      <form action"/complete" method="post">
-        <button type="submit" name="complete" value="{{todo}}">Mark Complete</button>
-        {{todo}}
-      </form>
-    </li>
-    {{/yetTodo}}
-    {{/todos}}
+        <li>
+        <form action="/complete" method="post">
+          <input type="submit" name="list" value="{{todo}}" /> {{todo}}
+        </form>
+        </li>
+        {{/yetTodo}}
+        {{/todos}}
     </ul>
-    <h1>Completed Things</h1>
+    <h1>Completed things</h1>
     <ul>
       {{#todos}}
       {{^yetTodo}}
       <li class="completed">
         {{todo}}
       </li>
-        {{/todos}}
-        {{/yetTodo}}
+      {{/yetTodo}}
     </ul>
-    <div class="results">
+    {{/todos}}
+    {{^todos}}
+    <h2>Nothin to do!</h2>
+    {{/todos}}
 
-    </div>
 
-    <!-- <script src="funk.js"></script> -->
+
   </body>
 </html>

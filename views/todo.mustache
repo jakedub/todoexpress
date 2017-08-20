@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,8 +12,8 @@
 
       {{#yetTodo}}
         <li>
-        <form action="/complete" method="post">
-          <input type="submit" name="list" value="{{todo}}" /> {{todo}}
+        <form action="/" method="post">
+          <button type="submit" name="list" placeholder="Mark As Complete" /> {{todo}}
         </form>
         </li>
         {{/yetTodo}}

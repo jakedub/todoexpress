@@ -49,15 +49,14 @@ app.post("/", function(req,res){
 });
 
 
-app.post("/complete", function(req,res)){
-  console.log(req.body);
+app.post("/", function(req,res){
 let completed =req.body.complete;
 function findTodo(item){
   return item.todo ===completed;}
   console.log(list.find(findTodo));
   list.find(findTodo).yetTodo= false;
   res.redirect("/");
-}
+});
 
 app.listen(3000, function(){
   console.log("Mark that box!");

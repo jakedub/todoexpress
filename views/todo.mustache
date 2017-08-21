@@ -1,39 +1,39 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>To-do-list</title>
-  </head>
-  <body>
-    <h1>To-do-list</h1>
-    <ul>
-      {{#todos}}
-
-      {{#yetTodo}}
-        <li>
-        <form action="/" method="post">
-          <button type="submit" name="list" placeholder="Mark As Complete" /> {{todo}}
-        </form>
-        </li>
-        {{/yetTodo}}
-        {{/todos}}
-    </ul>
-    <h1>Completed things</h1>
-    <ul>
-      {{#todos}}
-      {{^yetTodo}}
-      <li class="completed">
-        {{todo}}
-      </li>
-      {{/yetTodo}}
-    </ul>
+<head>
+  <meta charset="utf-8">
+  <title>Do these things</title>
+</head>
+<body>
+  <h1>Todo List</h1>
+  <ul>
+    {{#todos}}
+    {{#yetTodo}}
+    <li>
+      <form action="/completed" method="post">
+        <button type="submit" name="marked" value="{{todo}}">Mark as Complete</button>
+        <input type="text" name="task" value="" placeholder="Enter Your Task Here">
+      </form>
+    </li>
+    {{/yetTodo}}
     {{/todos}}
-    {{^todos}}
-    <h2>Nothin to do!</h2>
-    {{/todos}}
+  </ul>
+  <h1>Completed things</h1>
+  <ul>
+    {{#todos}}
+    {{^yetTodo}}
+    <li>
+      {{todo}}
+    </li>
+    {{/yetTodo}}
+  </ul>
+  {{/todos}}
+  {{^todos}}
+  <h2>Move along!</h2>
+  {{/todos}}
 
 
 
-  </body>
+</body>
 </html>

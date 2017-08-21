@@ -20,16 +20,16 @@ app.use(expressValidator());
 //To Do List
 const list = [
   {
-    todo: "Wash the car",
+    todo: "Wash the dishes",
     yetTodo: true
   }, {
-    todo: "Fold laundry",
+    todo: "Cut grass",
     yetTodo: false
   }, {
-    todo: "Do the dishes",
+    todo: "Get dog food",
     yetTodo:true
   }, {
-    todo: "Pay the bills",
+    todo: "Pick up",
     yetTodo:false
   }
 ];
@@ -38,24 +38,23 @@ const data = {
   todos:list
 };
 
-app.get('/', function (req, res) {
+app.get('/completed', function (req, res) {
   res.render("todo", data);
 });
 
 
-app.post("/", function(req,res){
+app.post("/completed", function(req,res){
   list.push({todo: req.body.todo, yetTodo:true});
-  res.redirect("/")
+  res.redirect("/completed")
 });
 
 
-app.post("/", function(req,res){
-let completed =req.body.complete;
+app.post("/completed", function(req,res){
+let completed =req.body.completed;
 function findTodo(item){
   return item.todo ===completed;}
-  console.log(list.find(findTodo));
   list.find(findTodo).yetTodo= false;
-  res.redirect("/");
+  res.redirect("/completed");
 });
 
 app.listen(3000, function(){
